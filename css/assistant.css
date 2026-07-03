@@ -1,0 +1,167 @@
+/* ==================== المساعد الذكي — الأزرار العائمة ==================== */
+.ai-fab {
+  position: fixed;
+  bottom: calc(78px + env(safe-area-inset-bottom));
+  right: var(--space-4);
+  z-index: 60;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-accent, #1B4B43);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 24px rgba(27, 75, 67, 0.45);
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.ai-fab.fab-hidden {
+  transform: scale(0.4) translateY(24px);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (min-width: 1024px) {
+  .ai-fab { bottom: var(--space-5); }
+}
+
+/* ==================== نافذة المحادثة ==================== */
+.ai-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.ai-modal-overlay.hidden { display: none; }
+
+.ai-modal {
+  width: 100%;
+  max-width: 560px;
+  max-height: 82vh;
+  background: var(--color-surface, #fff);
+  border-radius: var(--radius-lg, 20px) var(--radius-lg, 20px) 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+}
+@media (min-width: 640px) {
+  .ai-modal-overlay { align-items: center; }
+  .ai-modal { border-radius: var(--radius-lg, 20px); max-height: 76vh; }
+}
+
+.ai-modal-header {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.ai-modal-header h3 { margin: 0; font-size: 1.05rem; }
+.ai-modal-header p { margin: 4px 0 0; font-size: 0.82rem; color: var(--color-text-muted, #6b7280); }
+.ai-modal-close {
+  border: none;
+  background: var(--color-surface-2);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ai-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ai-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+.ai-msg-bot {
+  align-self: flex-start;
+  background: var(--color-surface-2);
+  color: var(--color-text, #1f2937);
+  border-bottom-left-radius: 4px;
+}
+.ai-msg-user {
+  align-self: flex-end;
+  background: var(--color-accent, #1B4B43);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.ai-msg-fallback {
+  border: 1px dashed var(--color-whatsapp, #25d366);
+}
+
+.ai-msg-typing {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 14px 16px;
+}
+.ai-msg-typing .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted, #9ca3af);
+  animation: aiTypingBounce 1.2s infinite ease-in-out;
+}
+.ai-msg-typing .dot:nth-child(2) { animation-delay: 0.15s; }
+.ai-msg-typing .dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes aiTypingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.ai-chat-form {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+.ai-chat-form input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.ai-chat-form button {
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent, #1B4B43);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ai-chat-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* شارة حالة النشر في لوحة التحكم */
+.publish-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-inline-start: 6px;
+}
+.publish-badge.published { background: #dcfce7; color: #166534; }
+.publish-badge.scheduled { background: #fef9c3; color: #854d0e; }
+.publish-badge.draft { background: #f3f4f6; color: #6b7280; }

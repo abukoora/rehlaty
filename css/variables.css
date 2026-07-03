@@ -1,0 +1,60 @@
+:root {
+  /* الألوان الأساسية — هوية بصرية خاصة بالمشروع */
+  --color-primary: #1B4B43;       /* أخضر تيل عميق — ثقة واستقرار */
+  --color-primary-light: #2F6F63;
+  --color-primary-dark: #123832;
+  --color-accent: #C9A24B;        /* ذهبي دافئ — دفء واحتفاء */
+  --color-accent-light: #E4C878;
+  --color-secondary: #8FA998;     /* أخضر سيج فاتح */
+  --color-bg: #F7F4ED;            /* خلفية بيضاء دافئة */
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F0ECE2;
+  --color-text: #23302C;
+  --color-text-muted: #6B7770;
+  --color-border: #E4DFD2;
+  --color-danger: #B5473A;
+  --color-success: #3E7A5D;
+  --color-whatsapp: #25D366;
+
+  /* الخطوط */
+  --font-display: "Cairo", "Tahoma", sans-serif;
+  --font-body: "Tajawal", "Tahoma", sans-serif;
+  --font-utility: "IBM Plex Sans Arabic", "Tahoma", sans-serif;
+
+  /* المسافات */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* الحواف والظلال */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(27, 75, 67, 0.06);
+  --shadow-md: 0 8px 24px rgba(27, 75, 67, 0.10);
+  --shadow-lg: 0 16px 40px rgba(27, 75, 67, 0.14);
+
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.28s ease;
+
+  /* ألوان حلقة المراحل الأربع (العنصر المميز المتكرر في الهوية) */
+  --stage-1: var(--color-accent);
+  --stage-2: var(--color-secondary);
+  --stage-3: var(--color-accent);
+  --stage-4: var(--color-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
